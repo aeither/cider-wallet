@@ -34,13 +34,7 @@ function IndexPopup() {
         width: "240px",
         height: "540px"
       }}>
-      <h2>
-        Welcome to your{" "}
-        <a href="https://www.plasmo.com" target="_blank">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
+      <button className="btn btn-primary">Hello World!</button>
       <div
         style={{
           display: "flex",
@@ -57,7 +51,9 @@ function IndexPopup() {
           </span>
         </button>
       </div>
-      <button className="p-2 bg-slate-500" onClick={get}>click</button>
+      <button className="p-2 bg-slate-500" onClick={get}>
+        click
+      </button>
       <button onClick={fetchData}>fetch data</button>
       <input onChange={(e) => setData(e.target.value)} value={data} />
       <p>{typeof data}</p>

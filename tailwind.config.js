@@ -10,5 +10,35 @@ module.exports = {
     }
   },
   variants: { extend: { typography: ["dark"] } },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")]
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       mytheme: {
+  //         primary: "#4f46e5",
+
+  //         secondary: "#9333ea",
+
+  //         accent: "#f59e0b",
+
+  //         neutral: "#252738",
+
+  //         "base-100": "#07081F",
+
+  //         info: "#55B0EC",
+
+  //         success: "#21A668",
+
+  //         warning: "#F8A649",
+
+  //         error: "#F63155"
+  //       }
+  //     }
+  //   ]
+  // },
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    // require("daisyui"),
+    require("rippleui")
+  ]
 }
