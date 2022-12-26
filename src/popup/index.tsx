@@ -6,6 +6,8 @@ import { useReducer, useState } from "react"
 
 import { Storage } from "@plasmohq/storage"
 
+import TransferButton from "~src/components/Transfer"
+
 function IndexPopup() {
   const [count, increase] = useReducer((c) => c + 1, 0)
 
@@ -34,7 +36,10 @@ function IndexPopup() {
         width: "240px",
         height: "540px"
       }}>
-      <button className="btn btn-primary">Hello World!</button>
+      <TransferButton />
+      <h1>
+        const FrontHull: <h1>{process.env.PLASMO_PUBLIC_PROJECT_ID}</h1>
+      </h1>
       <div
         style={{
           display: "flex",
