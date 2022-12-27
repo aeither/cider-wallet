@@ -1,14 +1,23 @@
 /* eslint-env worker */
 
-import "../../style.css"
+import "~/style.css"
 
 import { useReducer, useState } from "react"
 
 import { Storage } from "@plasmohq/storage"
 
 import TransferButton from "~src/components/Transfer"
+import useInitialization from "~src/hooks/useInitialization"
+import useWalletConnectEventsManager from "~src/hooks/useWalletConnectEventsManager"
 
 function IndexPopup() {
+  // Step 1 - Initialize wallets and wallet connect client
+  const initialized = useInitialization()
+  console.log("🚀 ~ file: index.tsx:16 ~ IndexPopup ~ initialized", initialized)
+
+  // Step 2 - Once initialized, set up wallet connect event manager
+  // useWalletConnectEventsManager(initialized)
+
   const [count, increase] = useReducer((c) => c + 1, 0)
 
   const [data, setData] = useState("")
@@ -37,9 +46,7 @@ function IndexPopup() {
         height: "540px"
       }}>
       <TransferButton />
-      <h1>
-        const FrontHull: <h1>{process.env.PLASMO_PUBLIC_PROJECT_ID}</h1>
-      </h1>
+      <h1>const FrontHull: {process.env.PLASMO_PUBLIC_PROJECT_ID}</h1>
       <div
         style={{
           display: "flex",
