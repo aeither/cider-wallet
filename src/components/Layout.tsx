@@ -54,8 +54,8 @@ export default function Layout({ children, initialized }: Props) {
                   paddingRight: 2,
                   paddingBottom: '40px',
                   '@xs': {
-                    padding: '20px',
-                    paddingBottom: '40px'
+                    padding: '8px',
+                    paddingBottom: '20px'
                   }
                 }}>
                 {children}

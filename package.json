@@ -1,6 +1,9 @@
 {
-  "name": "react-web3wallet",
+  "name": "cider-wallet",
   "private": true,
+  "author": {
+    "name": "aeither"
+  },
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
@@ -10,32 +13,20 @@
     "format:macos": "mv ./out/_next ./out/next && cd ./out && grep -rli '_next' * | xargs -I@ sed -i '' 's|/_next|/next|g' @;"
   },
   "dependencies": {
-    "@cosmjs/amino": "0.28.4",
-    "@cosmjs/encoding": "0.28.4",
-    "@cosmjs/proto-signing": "0.28.4",
-    "@elrondnetwork/erdjs": "11.1.1",
-    "@elrondnetwork/erdjs-walletcore": "2.1.0",
     "@json-rpc-tools/utils": "1.7.6",
-    "@near-wallet-selector/wallet-utils": "^7.0.2",
     "@nextui-org/react": "1.0.8-beta.5",
-    "@polkadot/keyring": "^10.1.2",
-    "@polkadot/types": "^9.3.3",
-    "@solana/web3.js": "1.43.0",
     "@walletconnect/utils": "2.1.4",
     "@walletconnect/web3wallet": "^1.0.0-rc-ed782cef",
     "bs58": "5.0.0",
-    "cosmos-wallet": "1.2.0",
     "ethers": "5.6.6",
     "framer-motion": "6.3.3",
     "mnemonic-keyring": "1.4.0",
-    "near-api-js": "^0.44.2",
     "next": "12.1.5",
     "react": "17.0.2",
     "react-code-blocks": "0.0.9-0",
     "react-dom": "17.0.2",
     "react-icons": "^4.7.1",
     "react-qr-reader-es6": "2.2.1-2",
-    "solana-wallet": "^1.0.2",
     "valtio": "1.6.0"
   },
   "devDependencies": {
