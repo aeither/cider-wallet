@@ -5,6 +5,7 @@ import { proxy } from 'valtio'
  */
 interface State {
   testNets: boolean
+  autoApprove: boolean
   account: number
   eip155Address: string
   relayerRegionURL: string
@@ -17,6 +18,10 @@ const state = proxy<State>({
   testNets:
     typeof localStorage !== 'undefined'
       ? Boolean(localStorage.getItem('TEST_NETS'))
+      : true,
+  autoApprove:
+    typeof localStorage !== 'undefined'
+      ? Boolean(localStorage.getItem('AUTO_APPROVE'))
       : true,
   account: 0,
   eip155Address: '',
@@ -47,6 +52,15 @@ const SettingsStore = {
       localStorage.setItem('TEST_NETS', 'YES')
     } else {
       localStorage.removeItem('TEST_NETS')
+    }
+  },
+
+  toggleAutoApprove() {
+    state.autoApprove = !state.autoApprove
+    if (state.autoApprove) {
+      localStorage.setItem('AUTO_APPROVE', 'YES')
+    } else {
+      localStorage.removeItem('AUTO_APPROVE')
     }
   }
 }

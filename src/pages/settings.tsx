@@ -3,13 +3,13 @@ import PageHeader from '@/components/PageHeader'
 import RelayRegionPicker from '@/components/RelayRegionPicker'
 import SettingsStore from '@/store/SettingsStore'
 import { createNewEIP155Wallet, eip155Wallets } from '@/utils/EIP155WalletUtil'
-import { Card, Divider, Row, Switch, Text } from '@nextui-org/react'
+import { Card, Divider, Input, Row, Switch, Text } from '@nextui-org/react'
 import { Fragment } from 'react'
 import { useSnapshot } from 'valtio'
 import packageJSON from '../../package.json'
 
 export default function SettingsPage() {
-  const { testNets, eip155Address } = useSnapshot(SettingsStore.state)
+  const { autoApprove, eip155Address } = useSnapshot(SettingsStore.state)
 
   const resetWallets = () => {
     const { eip155Addresses } = createNewEIP155Wallet()
@@ -47,11 +47,14 @@ export default function SettingsPage() {
       <Divider y={2} />
 
       <Text h4 css={{ marginBottom: '$5' }}>
-        Testnets
+        Auto approve
       </Text>
       <Row justify="space-between" align="center">
-        <Switch checked={testNets} onChange={SettingsStore.toggleTestNets} />
-        <Text>{testNets ? 'Enabled' : 'Disabled'}</Text>
+        <Switch
+          checked={autoApprove}
+          onChange={SettingsStore.toggleAutoApprove}
+        />
+        <Text>{autoApprove ? 'Enabled' : 'Disabled'}</Text>
       </Row>
 
       <Divider y={2} />
@@ -80,9 +83,11 @@ export default function SettingsPage() {
         EIP155 Mnemonic
       </Text>
       <Card bordered borderWeight="light" css={{ minHeight: '100px' }}>
-        <Text css={{ fontFamily: '$mono' }}>
-          {eip155Wallets[eip155Address].getMnemonic()}
-        </Text>
+        <Input.Password
+          // labelPlaceholder="Password"
+          initialValue={eip155Wallets[eip155Address].getMnemonic()}
+          css={{ fontFamily: '$mono' }}
+        />
       </Card>
     </Fragment>
   )
