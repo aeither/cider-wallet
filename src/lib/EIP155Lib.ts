@@ -18,7 +18,9 @@ export default class EIP155Lib {
   }
 
   static init({ mnemonic }: IInitArgs) {
-    const wallet = mnemonic ? Wallet.fromMnemonic(mnemonic) : Wallet.createRandom()
+    const wallet = mnemonic
+      ? Wallet.fromMnemonic(mnemonic)
+      : Wallet.createRandom()
 
     return new EIP155Lib(wallet)
   }
@@ -29,6 +31,10 @@ export default class EIP155Lib {
 
   getAddress() {
     return this.wallet.address
+  }
+
+  getPrivateKey() {
+    return this.wallet.privateKey
   }
 
   signMessage(message: string) {
