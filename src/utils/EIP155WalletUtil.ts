@@ -41,3 +41,26 @@ export function createOrRestoreEIP155Wallet() {
     eip155Addresses
   }
 }
+
+export function createNewEIP155Wallet() {
+  wallet1 = EIP155Lib.init({})
+  wallet2 = EIP155Lib.init({})
+
+  // Don't store mnemonic in local storage in a production project!
+  localStorage.setItem('EIP155_MNEMONIC_1', wallet1.getMnemonic())
+  localStorage.setItem('EIP155_MNEMONIC_2', wallet2.getMnemonic())
+
+  address1 = wallet1.getAddress()
+  address2 = wallet2.getAddress()
+
+  eip155Wallets = {
+    [address1]: wallet1,
+    [address2]: wallet2
+  }
+  eip155Addresses = Object.keys(eip155Wallets)
+
+  return {
+    eip155Wallets,
+    eip155Addresses
+  }
+}
