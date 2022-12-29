@@ -7,6 +7,7 @@ interface State {
   testNets: boolean
   autoApprove: boolean
   account: number
+  chainId: number
   eip155Address: string
   relayerRegionURL: string
 }
@@ -24,6 +25,7 @@ const state = proxy<State>({
       ? Boolean(localStorage.getItem('AUTO_APPROVE'))
       : true,
   account: 0,
+  chainId: 50,
   eip155Address: '',
   relayerRegionURL: ''
 })
@@ -36,6 +38,10 @@ const SettingsStore = {
 
   setAccount(value: number) {
     state.account = value
+  },
+
+  setChainId(value: number) {
+    state.chainId = value
   },
 
   setEIP155Address(eip155Address: string) {

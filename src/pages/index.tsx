@@ -40,7 +40,7 @@ export default function HomePage() {
         </Col>
       </Row>
 
-      {Object.values(EIP155_MAINNET_CHAINS).map(({ name, logo, rgb }) => (
+      {Object.values(EIP155_MAINNET_CHAINS).map(({ name, logo, rgb, chainId }) => (
         <AccountCard
           key={name}
           name={name}
