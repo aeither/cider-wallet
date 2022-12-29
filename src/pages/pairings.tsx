@@ -1,3 +1,4 @@
+import AccountPicker from '@/components/AccountPicker'
 import PageHeader from '@/components/PageHeader'
 import PairingCard from '@/components/PairingCard'
 import { web3wallet } from '@/utils/WalletConnectUtil'
@@ -11,16 +12,21 @@ export default function PairingsPage() {
   )
 
   async function onDelete(topic: string) {
-    await web3wallet.disconnectSession({ topic, reason: getSdkError('USER_DISCONNECTED') })
-    const newPairings = pairings.filter(pairing => pairing.topic !== topic)
+    await web3wallet.disconnectSession({
+      topic,
+      reason: getSdkError('USER_DISCONNECTED')
+    })
+    const newPairings = pairings.filter((pairing) => pairing.topic !== topic)
     setPairings(newPairings)
   }
 
   return (
     <Fragment>
-      <PageHeader title="Pairings" />
+      <PageHeader title="Pairings">
+        <AccountPicker />
+      </PageHeader>
       {pairings.length ? (
-        pairings.map(pairing => {
+        pairings.map((pairing) => {
           const { peerMetadata } = pairing
 
           return (
@@ -34,7 +40,9 @@ export default function PairingsPage() {
           )
         })
       ) : (
-        <Text css={{ opacity: '0.5', textAlign: 'center', marginTop: '$20' }}>No pairings</Text>
+        <Text css={{ opacity: '0.5', textAlign: 'center', marginTop: '$20' }}>
+          No pairings
+        </Text>
       )}
     </Fragment>
   )

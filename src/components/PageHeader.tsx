@@ -1,7 +1,7 @@
-import { Col, Divider, Row, Text, Image } from '@nextui-org/react'
+import { Col, Divider, Image, Row } from '@nextui-org/react'
 import Link from 'next/link'
 import { Fragment, ReactNode } from 'react'
-import { AiOutlineScan } from 'react-icons/ai'
+import { AiOutlineScan, AiOutlineUserSwitch } from 'react-icons/ai'
 
 /**
  * Types
@@ -18,7 +18,7 @@ export default function PageHeader({ title, children }: Props) {
   return (
     <Fragment>
       <Row
-        css={{ marginBottom: '$5', width: '100%' }}
+        css={{ marginBottom: '$5', width: '100%', gap: '$4' }}
         justify="space-between"
         align="center">
         <Row align="center">
@@ -33,6 +33,11 @@ export default function PageHeader({ title, children }: Props) {
         <Link href="/walletconnect" passHref>
           <a className="navLink">
             <AiOutlineScan size={27} color="#0071ED" />
+          </a>
+        </Link>
+        <Link href="/pairings" passHref>
+          <a className="navLink">
+            <AiOutlineUserSwitch size={27} color="#0071ED" />
           </a>
         </Link>
       </Row>
