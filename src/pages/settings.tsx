@@ -3,7 +3,15 @@ import PageHeader from '@/components/PageHeader'
 import RelayRegionPicker from '@/components/RelayRegionPicker'
 import SettingsStore from '@/store/SettingsStore'
 import { createNewEIP155Wallet, eip155Wallets } from '@/utils/EIP155WalletUtil'
-import { Card, Divider, Input, Row, Switch, Text } from '@nextui-org/react'
+import {
+  Button,
+  Card,
+  Divider,
+  Input,
+  Row,
+  Switch,
+  Text
+} from '@nextui-org/react'
 import { Fragment } from 'react'
 import { useSnapshot } from 'valtio'
 import packageJSON from '../../package.json'
@@ -89,6 +97,11 @@ export default function SettingsPage() {
           css={{ fontFamily: '$mono' }}
         />
       </Card>
+      <div style={{ width: '100%', paddingTop: '8px' }}>
+        <Button onClick={resetWallets} color="error" css={{ width: 'inherit' }}>
+          Reset Wallets
+        </Button>
+      </div>
     </Fragment>
   )
 }
