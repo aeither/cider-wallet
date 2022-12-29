@@ -1,3 +1,4 @@
+import AccountPicker from '@/components/AccountPicker'
 import PageHeader from '@/components/PageHeader'
 import RelayRegionPicker from '@/components/RelayRegionPicker'
 import SettingsStore from '@/store/SettingsStore'
@@ -14,7 +15,9 @@ export default function SettingsPage() {
 
   return (
     <Fragment>
-      <PageHeader title="Settings" />
+      <PageHeader title="settings">
+        <AccountPicker />
+      </PageHeader>
 
       <Text h4 css={{ marginBottom: '$5' }}>
         Packages
