@@ -12,6 +12,14 @@ export type TEIP155Chain = keyof typeof EIP155_CHAINS
  * Chains
  */
 export const EIP155_MAINNET_CHAINS = {
+  'eip155:50': {
+    chainId: 50,
+    name: 'XinFin XDC Network',
+    logo: '/chain-logos/eip155-50.png',
+    rgb: '36, 75, 130',
+    rpc: 'https://rpc.xinfin.network'
+    // rpc: 'https://xdcrpc.com'
+  },
   'eip155:1': {
     chainId: 1,
     name: 'Ethereum',
@@ -32,14 +40,6 @@ export const EIP155_MAINNET_CHAINS = {
     logo: '/chain-logos/eip155-10.png',
     rgb: '235, 0, 25',
     rpc: 'https://mainnet.optimism.io'
-  },
-  'eip155:50': {
-    chainId: 50,
-    name: 'XinFin XDC Network',
-    logo: '/chain-logos/eip155-50.png',
-    rgb: '36, 75, 130',
-    rpc: 'https://rpc.xinfin.network'
-    // rpc: 'https://xdcrpc.com'
   }
 }
 

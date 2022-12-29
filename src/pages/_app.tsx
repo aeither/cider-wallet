@@ -5,6 +5,7 @@ import useWalletConnectEventsManager from '@/hooks/useWalletConnectEventsManager
 import { createTheme, NextUIProvider } from '@nextui-org/react'
 import { AppProps } from 'next/app'
 import '../../public/main.css'
+import Head from 'next/head'
 
 const theme = createTheme({
   type: 'dark', // it could be "light" or "dark"
@@ -48,6 +49,10 @@ export default function App({ Component, pageProps }: AppProps) {
   // render app
   return (
     <NextUIProvider theme={theme}>
+      <Head>
+        <title>Cider Wallet</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Layout initialized={initialized}>
         <Component {...pageProps} />
       </Layout>
