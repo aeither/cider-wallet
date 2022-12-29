@@ -38,7 +38,8 @@ export const EIP155_MAINNET_CHAINS = {
     name: 'XinFin XDC Network',
     logo: '/chain-logos/eip155-50.png',
     rgb: '36, 75, 130',
-    rpc: 'https://xdcrpc.com'
+    rpc: 'https://rpc.xinfin.network'
+    // rpc: 'https://xdcrpc.com'
   }
 }
 
@@ -69,7 +70,8 @@ export const EIP155_TEST_CHAINS = {
     name: 'XDC Apothem Network',
     logo: '/chain-logos/eip155-50.png',
     rgb: '36, 75, 130',
-    rpc: 'https://rpc.apothem.network'
+    // rpc: 'https://rpc.apothem.network'
+    rpc: 'https://apothemrpc.blocksscan.io/'
   }
 }
 

@@ -32,6 +32,8 @@ export default function SessionSendTransactionModal() {
     if (requestEvent) {
       setLoading(true)
       const response = await approveEIP155Request(requestEvent)
+
+      // emit event on success
       await web3wallet.respondSessionRequest({
         topic,
         response

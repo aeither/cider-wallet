@@ -1,3 +1,4 @@
+import AccountPicker from '@/components/AccountPicker'
 import PageHeader from '@/components/PageHeader'
 import QrReader from '@/components/QrReader'
 import { pair } from '@/utils/WalletConnectUtil'
@@ -22,11 +23,15 @@ export default function WalletConnectPage() {
 
   return (
     <Fragment>
-      <PageHeader title="WalletConnect" />
+      <PageHeader title="connect">
+        <AccountPicker />
+      </PageHeader>
 
       <QrReader onConnect={onConnect} />
 
-      <Text size={13} css={{ textAlign: 'center', marginTop: '$10', marginBottom: '$10' }}>
+      <Text
+        size={13}
+        css={{ textAlign: 'center', marginTop: '$10', marginBottom: '$10' }}>
         or use walletconnect uri
       </Text>
 
@@ -35,7 +40,7 @@ export default function WalletConnectPage() {
         bordered
         aria-label="wc url connect input"
         placeholder="e.g. wc:a281567bb3e4..."
-        onChange={e => setUri(e.target.value)}
+        onChange={(e) => setUri(e.target.value)}
         value={uri}
         contentRight={
           <Button
@@ -43,8 +48,7 @@ export default function WalletConnectPage() {
             disabled={!uri}
             css={{ marginLeft: -60 }}
             onClick={() => onConnect(uri)}
-            color="gradient"
-          >
+            color="gradient">
             {loading ? <Loading size="sm" /> : 'Connect'}
           </Button>
         }
