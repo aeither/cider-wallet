@@ -5,14 +5,20 @@ import { EIP155_MAINNET_CHAINS, EIP155_TEST_CHAINS } from '@/data/EIP155Data'
 import SettingsStore from '@/store/SettingsStore'
 import { Fragment } from 'react'
 import { useSnapshot } from 'valtio'
-import { Grid, Card, Text, Avatar, Row, Col } from '@nextui-org/react'
+import { Grid, Card, Text, Avatar, Row, Col, Spacer } from '@nextui-org/react'
 import { HiDownload } from 'react-icons/hi'
 import { FiExternalLink } from 'react-icons/fi'
 import { AiOutlineSwap } from 'react-icons/ai'
 import DepositModal from '@/components/DepositModal'
+import ChainPicker from '@/components/ChainPicker'
 
 export default function HomePage() {
-  const { testNets, eip155Address, account } = useSnapshot(SettingsStore.state)
+  const {
+    testNets,
+    eip155Address,
+    account,
+    chainId: selectedChainId
+  } = useSnapshot(SettingsStore.state)
 
   return (
     <Fragment>
@@ -34,21 +40,24 @@ export default function HomePage() {
             color="gradient"
             bordered
           />
+          <ChainPicker />
           <Text h4 css={{ marginBottom: '$5', textAlign: 'center' }}>
             $221.43
           </Text>
         </Col>
       </Row>
 
-      {Object.values(EIP155_MAINNET_CHAINS).map(({ name, logo, rgb, chainId }) => (
-        <AccountCard
-          key={name}
-          name={name}
-          logo={logo}
-          rgb={rgb}
-          address={eip155Address}
-        />
-      ))}
+      {Object.values(EIP155_MAINNET_CHAINS)
+        .filter(({ chainId }) => chainId === selectedChainId)
+        .map(({ name, logo, rgb, chainId }) => (
+          <AccountCard
+            key={name}
+            name={name}
+            logo={logo}
+            rgb={rgb}
+            address={eip155Address}
+          />
+        ))}
 
       <Grid.Container gap={2} justify="center">
         <Grid xs={4}>
