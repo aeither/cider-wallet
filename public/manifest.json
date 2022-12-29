@@ -1,10 +1,39 @@
 {
   "name": "Cider Wallet",
-  "version": "1.0.0",
+  "short_name": "Wallet",
   "manifest_version": 3,
   "action": {
     "default_title": "Cider Wallet",
     "default_popup": "index.html"
   },
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "background_color": "#1672ed",
+  "theme_color": "#1672ed",
+  "icons": [
+    {
+      "src": "images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
