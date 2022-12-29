@@ -9,6 +9,7 @@ import { Grid, Card, Text, Avatar, Row, Col } from '@nextui-org/react'
 import { HiDownload } from 'react-icons/hi'
 import { FiExternalLink } from 'react-icons/fi'
 import { AiOutlineSwap } from 'react-icons/ai'
+import DepositModal from '@/components/DepositModal'
 
 export default function HomePage() {
   const { testNets, eip155Address, account } = useSnapshot(SettingsStore.state)
@@ -59,9 +60,10 @@ export default function HomePage() {
                 alignItems: 'center'
               }}>
               <HiDownload size={40} />
-              <Text h6 size={15} color="white" css={{ mt: 0 }}>
-                Buy
-              </Text>
+              {/* <Text h6 size={15} color="white" css={{ mt: 0 }}>
+                Deposit
+              </Text> */}
+              <DepositModal />
             </Card.Body>
           </Card>
         </Grid>
