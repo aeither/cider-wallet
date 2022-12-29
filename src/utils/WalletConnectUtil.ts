@@ -5,10 +5,11 @@ export let web3wallet: IWeb3Wallet
 export let core: ICore
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID)
-  throw 'NEXT_PUBLIC_PROJECT_ID not found'
+  throw new Error('NEXT_PUBLIC_PROJECT_ID not found')
 const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID
 
-if (!process.env.NEXT_PUBLIC_RELAY_URL) throw 'NEXT_PUBLIC_RELAY_URL not found'
+if (!process.env.NEXT_PUBLIC_RELAY_URL)
+  throw new Error('NEXT_PUBLIC_RELAY_URL not found')
 const RELAY_URL = process.env.NEXT_PUBLIC_RELAY_URL
 
 export async function createWeb3Wallet(relayerRegionURL: string) {
@@ -17,7 +18,8 @@ export async function createWeb3Wallet(relayerRegionURL: string) {
   core = new Core({
     logger: 'debug',
     projectId: PROJECT_ID,
-    relayUrl: relayerRegionURL ?? RELAY_URL
+    relayUrl: RELAY_URL
+    // relayUrl: relayerRegionURL ?? RELAY_URL
   })
   console.log(
     '🚀 ~ file: WalletConnectUtil.ts:18 ~ createWeb3Wallet ~ core',
