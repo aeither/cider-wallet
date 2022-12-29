@@ -22,6 +22,7 @@
     "framer-motion": "6.3.3",
     "mnemonic-keyring": "1.4.0",
     "next": "12.1.5",
+    "pwa-asset-generator": "^6.2.0",
     "qrcode": "^1.5.1",
     "react": "17.0.2",
     "react-code-blocks": "0.0.9-0",
