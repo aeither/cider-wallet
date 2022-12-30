@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation'
 import RouteTransition from '@/components/RouteTransition'
-import { Card, Container, Loading } from '@nextui-org/react'
+import { Card, Container, Loading, Row } from '@nextui-org/react'
 import { Fragment, ReactNode } from 'react'
 
 /**
@@ -64,8 +64,7 @@ export default function Layout({ children, initialized }: Props) {
 
             <Card.Footer
               css={{
-                // height: '85px',
-                // minHeight: '85px',
+                display: 'none',
                 py: 16,
                 position: 'sticky',
                 justifyContent: 'flex-end',
@@ -74,7 +73,10 @@ export default function Layout({ children, initialized }: Props) {
                 backgroundColor: '$backgroundColorLight',
                 zIndex: 200,
                 bottom: 0,
-                left: 0
+                left: 0,
+                '@xs': {
+                  display: 'flex'
+                }
               }}>
               <Navigation />
             </Card.Footer>
@@ -83,6 +85,24 @@ export default function Layout({ children, initialized }: Props) {
           <Loading />
         )}
       </Card>
+      <Row
+        css={{
+          display: 'flex',
+          padding: 16,
+          position: 'sticky',
+          justifyContent: 'flex-end',
+          alignItems: 'flex-end',
+          boxShadow: '0 -30px 20px $backgroundColorLight',
+          backgroundColor: '$backgroundColorLight',
+          zIndex: 250,
+          bottom: 0,
+          left: 0,
+          '@xs': {
+            display: 'none'
+          }
+        }}>
+        <Navigation />
+      </Row>
     </Container>
   )
 }

@@ -51,13 +51,13 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextUIProvider theme={theme}>
       <Head>
         <title>Cider Wallet</title>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1672ed" />
+        <meta name="apple-mobile-web-app-status-bar" content="#1672ed" />
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width, user-scalable=no"
         />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#1672ed" />
-        <meta name="apple-mobile-web-app-status-bar" content="#1672ed" />
         <link
           rel="apple-touch-startup-image"
           href="images/apple-splash-2048-2732.jpg"
