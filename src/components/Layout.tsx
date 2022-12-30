@@ -2,6 +2,8 @@ import Navigation from '@/components/Navigation'
 import RouteTransition from '@/components/RouteTransition'
 import { Card, Container, Loading, Row } from '@nextui-org/react'
 import { Fragment, ReactNode } from 'react'
+import AccountPicker from '@/components/AccountPicker'
+import PageHeaderMobile from '@/components/PageHeaderMobile'
 
 /**
  * Types
@@ -26,6 +28,27 @@ export default function Layout({ children, initialized }: Props) {
         paddingLeft: 0,
         paddingRight: 0
       }}>
+      <Row
+        css={{
+          display: 'flex',
+          padding: 16,
+          position: 'sticky',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          boxShadow: '0 -30px 20px $backgroundColorLight',
+          backgroundColor: '$backgroundColorLight',
+          zIndex: 250,
+          top: 0,
+          left: 0,
+          '@xs': {
+            display: 'none'
+          }
+        }}>
+        <PageHeaderMobile title="Sessions">
+          <AccountPicker />
+        </PageHeaderMobile>
+      </Row>
+
       <Card
         bordered={{ '@initial': false, '@xs': true }}
         borderWeight={{ '@initial': 'light', '@xs': 'light' }}

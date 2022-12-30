@@ -135,6 +135,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="apple-touch-icon" href="images/apple-icon-180.png" />
       </Head>
+      
       <Layout initialized={initialized}>
         <Component {...pageProps} />
       </Layout>

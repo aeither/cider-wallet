@@ -18,13 +18,7 @@ export default function PageHeader({ title, children }: Props) {
   return (
     <Fragment>
       <Row
-        css={{
-          display: 'none',
-          marginBottom: '$5',
-          width: '100%',
-          gap: '$4',
-          '@xs': { display: 'flex' }
-        }}
+        css={{ marginBottom: '$5', width: '100%', gap: '$4' }}
         justify="space-between"
         align="center">
         <Row align="center">

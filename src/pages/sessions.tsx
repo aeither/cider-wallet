@@ -13,7 +13,9 @@ export default function SessionsPage() {
   if (!sessions.length) {
     return (
       <Fragment>
-        <PageHeader title="Sessions" />
+        <PageHeader title="Sessions">
+          <AccountPicker />
+        </PageHeader>
         <Text css={{ opacity: '0.5', textAlign: 'center', marginTop: '$20' }}>
           No sessions
         </Text>
@@ -23,7 +25,7 @@ export default function SessionsPage() {
 
   return (
     <Fragment>
-      <PageHeader title="sessions">
+      <PageHeader title="Sessions">
         <AccountPicker />
       </PageHeader>
 
