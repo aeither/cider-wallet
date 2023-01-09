@@ -1,6 +1,10 @@
 ## Cider Wallet
 
-[DEMO](https://cider-wallet.vercel.app/)
+![banner-ciderwallet](https://user-images.githubusercontent.com/36173828/211326363-d04a91f3-bf88-4f94-a887-9716379414f4.png)
+
+## Demo
+
+[Web app](https://cider-wallet.vercel.app/)
 
 ## Getting Started
 
