@@ -1,13 +1,16 @@
 import { EIP155_MAINNET_CHAINS } from '@/data/EIP155Data'
 import SettingsStore from '@/store/SettingsStore'
-import { useSnapshot } from 'valtio'
 
 export default function ChainPicker() {
-  const { account } = useSnapshot(SettingsStore.state)
-
-  function onSelect(value: string) {
+  async function onSelect(value: string) {
     const chainId = Number(value)
     SettingsStore.setChainId(chainId)
+
+    if (!window.ethereum) return
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: `0x${chainId.toString(16)}` }]
+    })
   }
 
   return (
