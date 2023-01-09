@@ -79,7 +79,6 @@ export default function HomePage() {
           <Text h4 css={{ marginBottom: '$5', textAlign: 'center' }}>
             {`${balance} ETH`}
           </Text>
-          <Button onClick={() => getBalance()}>log</Button>
         </Col>
       </Row>
 
