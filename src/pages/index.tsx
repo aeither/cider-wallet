@@ -3,14 +3,30 @@ import AccountPicker from '@/components/AccountPicker'
 import PageHeader from '@/components/PageHeader'
 import { EIP155_MAINNET_CHAINS, EIP155_TEST_CHAINS } from '@/data/EIP155Data'
 import SettingsStore from '@/store/SettingsStore'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useSnapshot } from 'valtio'
-import { Grid, Card, Text, Avatar, Row, Col, Spacer } from '@nextui-org/react'
+import {
+  Grid,
+  Card,
+  Text,
+  Avatar,
+  Row,
+  Col,
+  Spacer,
+  Button
+} from '@nextui-org/react'
 import { HiDownload } from 'react-icons/hi'
 import { FiExternalLink } from 'react-icons/fi'
 import { AiOutlineSwap } from 'react-icons/ai'
 import DepositModal from '@/components/DepositModal'
 import ChainPicker from '@/components/ChainPicker'
+import {
+  createNewEIP155Wallet,
+  eip155Wallets,
+  wallet1
+} from '@/utils/EIP155WalletUtil'
+import { getAccount } from '@wagmi/core'
+import { ethers } from 'ethers'
 
 export default function HomePage() {
   const {
@@ -19,6 +35,25 @@ export default function HomePage() {
     account,
     chainId: selectedChainId
   } = useSnapshot(SettingsStore.state)
+
+  const [balance, setBalance] = useState('')
+
+  const getBalance = async () => {
+    if (!window.ethereum) return
+    const provider = new ethers.providers.Web3Provider(window.ethereum as any)
+    const balance = await provider.getBalance(eip155Address)
+    const balanceInEth = ethers.utils.formatEther(balance)
+
+    setBalance(balanceInEth)
+    console.log('🚀 ~ file: index.tsx:35 ~ log ~ info', balanceInEth)
+  }
+  useEffect(() => {
+    getBalance()
+  }, [window.ethereum, eip155Address])
+
+  const sendEth = () => {
+    
+  }
 
   return (
     <Fragment>
@@ -42,8 +77,9 @@ export default function HomePage() {
           />
           <ChainPicker />
           <Text h4 css={{ marginBottom: '$5', textAlign: 'center' }}>
-            $221.43
+            {`${balance} ETH`}
           </Text>
+          <Button onClick={() => getBalance()}>log</Button>
         </Col>
       </Row>
 
